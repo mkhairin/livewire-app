@@ -33,7 +33,7 @@
                 </a>
                 <div class="collapse" id="position">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('departement.index') }}"
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('position.index') }}"
                                 wire:navigate>Position Lists</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('departement.create') }}"
                                 wire:navigate>Position Form</a></li>
