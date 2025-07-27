@@ -35,7 +35,7 @@
                                         <a href="{{ route('departement.edit', $departement->id) }}" wire:navigate
                                             class="btn btn-primary btn-sm" role="button" aria-disabled="true"><i
                                                 class="fa fa-pencil"></i></a>
-                                        <a href="" wire:navigate class="btn btn-light btn-sm" role="button"
+                                        <a wire:click="destroy({{ $departement->id }})" class="btn btn-light btn-sm" role="button"
                                             aria-disabled="true"><i class="fa fa-trash-o"></i></a>
                                     </td>
                                 </tr>
