@@ -10,8 +10,8 @@
                         </div>
                     @endif
                 </div>
-                <a href="{{ route('departement.create') }}" wire:navigate class="btn btn-primary" tabindex="-1"
-                    role="button" aria-disabled="true">Add Users</a>
+                <a href="{{ route('users.create') }}" wire:navigate class="btn btn-primary" tabindex="-1" role="button"
+                    aria-disabled="true">Add Users</a>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -30,15 +30,23 @@
                             @forelse ($users as $user)
                                 <tr>
                                     <td>{{ $i++ }}</td>
-                                    @if($user->name)
-                                    <td>{{ $user->name }}</td>
+                                    @if ($user->name)
+                                        <td>{{ $user->name }}</td>
                                     @else
-                                    <td>Belum ada Nama</td>
+                                        <td>Belum ada Nama</td>
                                     @endif
                                     <td>{{ $user->position->name ?? 'Belum ada Nama' }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->password }}</td>
-                                    <td>{{ $user->role }}</td>
+                                    @if ($user->role == 'admin')
+                                        <td><span
+                                                class="bg-success p-2 px-3 rounded-pill text-white fw-medium">{{ $user->role }}</span>
+                                        </td>
+                                    @else
+                                        <td><span
+                                                class="bg-info p-2 px-3 rounded-pill text-white fw-medium">{{ $user->role }}</span>
+                                        </td>
+                                    @endif
                                     <td>
                                         <a href="#" wire:navigate class="btn btn-primary btn-sm" role="button"
                                             aria-disabled="true"><i class="fa fa-pencil"></i></a>
