@@ -18,7 +18,7 @@
                 <div class="collapse" id="departement">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="{{ route('departement.index') }}"
-                                wire:navigate>Departement Lists</a></li>
+                                wire:navigate>Departement List</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('departement.create') }}"
                                 wire:navigate>Departement Form</a></li>
                     </ul>
@@ -34,12 +34,46 @@
                 <div class="collapse" id="position">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="{{ route('position.index') }}"
-                                wire:navigate>Position Lists</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('departement.create') }}"
+                                wire:navigate>Position List</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('position.create') }}"
                                 wire:navigate>Position Form</a></li>
                     </ul>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#district" aria-expanded="false"
+                    aria-controls="district">
+                    <i class="menu-icon mdi mdi-floor-plan"></i>
+                    <span class="menu-title">District</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="district">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('district.index') }}"
+                                wire:navigate>District List</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('district.create') }}"
+                                wire:navigate>District Form</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#progress_status" aria-expanded="false"
+                    aria-controls="progress_status">
+                    <i class="menu-icon mdi mdi-floor-plan"></i>
+                    <span class="menu-title">Progress Status</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="progress_status">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('progress_status.index') }}"
+                                wire:navigate>Progress Status List</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('progress_status.create') }}"
+                                wire:navigate>Progress Status Form</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
+
     </nav>
 </div>

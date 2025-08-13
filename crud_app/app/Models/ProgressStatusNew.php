@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class District extends Model
+class ProgressStatusNew extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'name'
+        'name',
+        'description'
     ];
 }

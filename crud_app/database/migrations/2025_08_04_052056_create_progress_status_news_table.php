@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('progress_statuses', function (Blueprint $table) {
+        Schema::create('progress_status_news', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', 15)->unique();
+            $table->string('description', 255);
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('progress_statuses');
+        Schema::dropIfExists('progress_status_news');
     }
 };

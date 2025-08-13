@@ -28,10 +28,11 @@
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $position->name }}</td>
                                     <td>
-                                        <a href="#" wire:navigate class="btn btn-primary btn-sm" role="button"
-                                            aria-disabled="true"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn btn-light btn-sm" role="button" aria-disabled="true"><i
-                                                class="fa fa-trash-o"></i></a>
+                                        <a href="{{ route('position.edit', $position->id) }}" wire:navigate
+                                            class="btn btn-primary btn-sm" role="button" aria-disabled="true"><i
+                                                class="fa fa-pencil"></i></a>
+                                        <a wire:click="destroy({{ $position->id }})" class="btn btn-light btn-sm"
+                                            role="button" aria-disabled="true"><i class="fa fa-trash-o"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

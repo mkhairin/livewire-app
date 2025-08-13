@@ -10,7 +10,7 @@
                         <input type="text" class="form-control" placeholder="Position Name"
                             wire:model="name">
                         <!-- error message untuk title -->
-                        @error('departement_name')
+                        @error('name')
                             <div class="alert alert-danger mt-2">
                                 {{ $message }}
                             </div>
