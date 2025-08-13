@@ -30,22 +30,22 @@
                                     <td>
                                         @if ($progress->name == 'Pending')
                                             <span
-                                                class="bg-primary p-2 rounded text-white fw-medium">{{ $progress->name }}</span>
+                                                class="bg-primary p-2 px-3 rounded-pill text-white fw-medium">{{ $progress->name }}</span>
                                         @elseif($progress->name == 'In Progress')
                                             <span
-                                                class="bg-info p-2 rounded text-white fw-medium">{{ $progress->name }}</span>
+                                                class="bg-info p-2 px-3 rounded-pill text-white fw-medium">{{ $progress->name }}</span>
                                         @elseif($progress->name == 'On Hold')
                                             <span
-                                                class="bg-warning p-2 rounded text-white fw-medium">{{ $progress->name }}</span>
+                                                class="bg-warning p-2 px-3 rounded-pill text-white fw-medium">{{ $progress->name }}</span>
                                         @elseif($progress->name == 'Completed')
                                             <span
-                                                class="bg-success p-2 rounded text-white fw-medium">{{ $progress->name }}</span>
+                                                class="bg-success p-2 px-3 rounded-pill text-white fw-medium">{{ $progress->name }}</span>
                                         @elseif($progress->name == 'Cancelled')
                                             <span
-                                                class="bg-danger p-2 rounded text-white fw-medium">{{ $progress->name }}</span>
+                                                class="bg-danger p-2 px-3 rounded-pill text-white fw-medium">{{ $progress->name }}</span>
                                         @elseif($progress->name == 'Review')
                                             <span
-                                                class="bg-warning p-2 rounded text-white fw-medium">{{ $progress->name }}</span>
+                                                class="bg-warning p-2 px-3 rounded-pill text-white fw-medium">{{ $progress->name }}</span>
                                         @endif
                                     </td>
                                     <td>{{ $progress->description }}</td>

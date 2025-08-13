@@ -7,7 +7,7 @@
                 <form class="forms-sample" wire:submit.prevent="create">
                     <div class="form-group">
                         <label>Departement Name</label>
-                        <input type="text" class="form-control" placeholder="Departement Name"
+                        <input type="text" class="form-control" placeholder="Masukkan Nama Departemen"
                             wire:model="departement_name">
                         <!-- error message untuk title -->
                         @error('departement_name')
@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label>Departement Aliases</label>
-                        <input type="text" class="form-control" placeholder="Departement Aliases"
+                        <input type="text" class="form-control" placeholder="Masukkan Alias Nama Departemen"
                             wire:model="departement_aliases">
                         <!-- error message untuk title -->
                         @error('departement_aliases')
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label>Departement Description</label>
-                        <input type="text" class="form-control" placeholder="Departement Description"
+                        <input type="text" class="form-control" placeholder="Masukkan Deskripsi dari Departemen"
                             wire:model="departement_description">
                         <!-- error message untuk title -->
                         @error('departement_description')
@@ -40,7 +40,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Submit <span wire:loading
                             wire:target="create">Menyimpan...</span></button>
-                    <button class="btn btn-light">Cancel</button>
+                    <a href="{{ route('departement.index') }}" wire:navigate.hover class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>

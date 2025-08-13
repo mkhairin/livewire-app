@@ -19,7 +19,7 @@
                     
                     <button type="submit" class="btn btn-primary me-2">Submit <span wire:loading
                             wire:target="create">Menyimpan...</span></button>
-                    <button class="btn btn-light">Cancel</button>
+                      <a href="{{ route('district.index') }}" wire:navigate.hover class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>

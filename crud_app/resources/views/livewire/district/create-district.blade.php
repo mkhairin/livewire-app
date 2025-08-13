@@ -7,8 +7,7 @@
                 <form class="forms-sample" wire:submit="create">
                     <div class="form-group">
                         <label>District Name</label>
-                        <input type="text" class="form-control" placeholder="District Name"
-                            wire:model="name">
+                        <input type="text" class="form-control" placeholder="District Name" wire:model="name">
                         <!-- error message untuk title -->
                         @error('departement_name')
                             <div class="alert alert-danger mt-2">
@@ -16,10 +15,10 @@
                             </div>
                         @enderror
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary me-2">Submit <span wire:loading
                             wire:target="create">Menyimpan...</span></button>
-                    <button class="btn btn-light">Cancel</button>
+                    <a href="{{ route('district.index') }}" wire:navigate.hover class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>

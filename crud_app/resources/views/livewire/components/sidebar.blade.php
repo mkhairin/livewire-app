@@ -11,7 +11,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#departement" aria-expanded="false"
                     aria-controls="departement">
-                    <i class="menu-icon mdi mdi-floor-plan"></i>
+                    <i class="menu-icon fa fa-building-o"></i>
                     <span class="menu-title">Departement</span>
                     <i class="menu-arrow"></i>
                 </a>
@@ -27,7 +27,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#position" aria-expanded="false"
                     aria-controls="position">
-                    <i class="menu-icon mdi mdi-floor-plan"></i>
+                    <i class="menu-icon fa fa-drivers-license-o"></i>
                     <span class="menu-title">Position</span>
                     <i class="menu-arrow"></i>
                 </a>
@@ -43,7 +43,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#district" aria-expanded="false"
                     aria-controls="district">
-                    <i class="menu-icon mdi mdi-floor-plan"></i>
+                    <i class="menu-icon fa fa-road"></i>
                     <span class="menu-title">District</span>
                     <i class="menu-arrow"></i>
                 </a>
