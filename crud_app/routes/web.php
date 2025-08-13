@@ -21,6 +21,7 @@ use App\Livewire\ProgressStatus\IndexProgress;
 use App\Livewire\ProgressStatus\CreateProgress;
 use App\Livewire\ProgressStatus\EditProgress;
 
+use App\Livewire\Users\IndexUsers;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -43,4 +44,5 @@ Route::get('/progress-status', IndexProgress::class)->name('progress_status.inde
 Route::get('/progress-status/create', CreateProgress::class)->name('progress_status.create');
 Route::get('/progress-status/edit/{id}', EditProgress::class)->name('progress_status.edit');
 
+Route::get('/users', IndexUsers::class)->name('users.index');
 
