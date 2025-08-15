@@ -4,26 +4,25 @@ namespace App\Livewire\Users;
 
 use Livewire\Component;
 use App\Models\UserNew;
-use App\Models\Position;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 
 class IndexUsers extends Component
 {
-    public $users;
+    use WithPagination;
 
-    public function mount()
+    public function destroy(UserNew $user)
     {
-        $this->loadUsers();
-    }
-
-    #[On('userCreated')]
-    public function loadUsers()
-    {
-        $this->users = UserNew::with('position')->get();
+        $user->delete();
+        session()->flash('message', 'Data Pengguna Berhasil Dihapus');
     }
 
     public function render()
     {
-        return view('livewire.users.index-users');
+        $users = UserNew::with('position')->latest()->paginate(10);
+
+        return view('livewire.users.index-users', [
+            'users' => $users
+        ]);
     }
 }

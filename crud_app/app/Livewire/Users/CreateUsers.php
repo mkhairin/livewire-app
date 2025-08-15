@@ -6,22 +6,32 @@ use Livewire\Component;
 use App\Models\UserNew;
 use App\Models\Position;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Attributes\Rule;
+use Livewire\Attributes\Rule as LivewireRule;
+use Illmunate\Validation\Rule;
 
 class CreateUsers extends Component
 {
-    #[Rule('required|string|max:50')]
-    public $name;
-    #[Rule('required|string|unique:user_news,email')]
-    public $email;
-    #[Rule('required|min:8')]
-    public $password;
-    #[Rule('required|in:admin,employee')]
-    public $role = 'employee';
-    #[Rule('nullable|exists:positions,id')]
-    public $position_id;
+
+    public UserNew $user;
+
+    public string $name;
+    public string $email;
+    public ?string $password;
+    public string $role = '';
+    public ?int $position_id;
+
     public $positions;
 
+    protected function rules()
+    {
+        return [
+            'name' => 'required|string|max:50',
+            'email' => 'required|email|unique:user_news,email',
+            'password' => 'required|min:8',
+            'role' => 'required|in:admin,employee',
+            'position_id' => 'nullable|exists:positions,id'
+        ];
+    }
 
     public function mount()
     {
@@ -42,7 +52,7 @@ class CreateUsers extends Component
         $this->dispatch('userCreated');
         $this->reset();
 
-        session()->flash('message', 'Data Berhasil Ditambahkan');
+        session()->flash('message', 'Data Pengguna Berhasil Ditambahkan');
         return redirect()->route('users.index');
     }
 

@@ -48,10 +48,13 @@
                                         </td>
                                     @endif
                                     <td>
-                                        <a href="#" wire:navigate class="btn btn-primary btn-sm" role="button"
-                                            aria-disabled="true"><i class="fa fa-pencil"></i></a>
-                                        <a wire:click="#" class="btn btn-light btn-sm" role="button"
-                                            aria-disabled="true"><i class="fa fa-trash-o"></i></a>
+                                        <a href="{{ route('users.edit', $user->id) }}" wire:navigate
+                                            class="btn btn-primary btn-sm" role="button" aria-disabled="true"><i
+                                                class="fa fa-pencil"></i></a>
+                                        <a wire:click="destroy({{ $user->id }})"
+                                            wire:confirm="Apakah Anda Yakin Menghapus Data ini?"
+                                            class="btn btn-light btn-sm" role="button" aria-disabled="true"><i
+                                                class="fa fa-trash-o"></i></a>
                                     </td>
                                 </tr>
                             @empty
@@ -59,6 +62,10 @@
 
                         </tbody>
                     </table>
+
+                    <div class="mt-4">
+                        {{ $users->links() }}
+                    </div>
                 </div>
             </div>
         </div>

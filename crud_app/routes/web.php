@@ -23,6 +23,9 @@ use App\Livewire\ProgressStatus\EditProgress;
 
 use App\Livewire\Users\IndexUsers;
 use App\Livewire\Users\CreateUsers;
+use App\Livewire\Users\EditUsers;
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -46,3 +49,6 @@ Route::get('/progress-status/edit/{id}', EditProgress::class)->name('progress_st
 
 Route::get('/users', IndexUsers::class)->name('users.index');
 Route::get('/user/create', CreateUsers::class)->name('users.create');
+Route::get('/user/edit/{id}', EditUsers::class)->name('users.edit');
+
+

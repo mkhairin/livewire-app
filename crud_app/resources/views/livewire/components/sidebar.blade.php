@@ -2,7 +2,7 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('home.index') }}">
                     <i class="mdi mdi-grid-large menu-icon"></i>
                     <span class="menu-title">Dashboard</span>
                 </a>
@@ -84,7 +84,8 @@
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="{{ route('users.index') }}" wire:navigate>Users
                                 List</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="#" wire:navigate>Progress Status Form</a>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('users.create') }}"
+                                wire:navigate>Progress Status Form</a>
                         </li>
                     </ul>
                 </div>

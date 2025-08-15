@@ -4,7 +4,7 @@
             <div class="card-body">
                 <h4 class="card-title">Progress Status Form</h4>
                 <p class="card-description"> Basic form elements </p>
-                <form class="forms-sample" wire:submit="create">
+                <form class="forms-sample" wire:submit="update">
                     <div class="form-group">
                         <label>Progress Status Name</label>
                         <input type="text" class="form-control" placeholder="Prograss Status Name" wire:model="name">
