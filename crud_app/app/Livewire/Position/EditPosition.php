@@ -7,26 +7,38 @@ use App\Models\Position;
 
 class EditPosition extends Component
 {
-    public $position_id;
+    public Position $position;
     public $name;
+    public $position_id;
 
-    protected $rules = [
-        'name' => ['required']
-    ];
+    public function rules()
+    {
+        return [
+            'name' => 'required|string|min:8|max:100'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Nama posisi harus diisi!',
+            'name.string' => 'Data nama harus berupa teks!',
+            'name.min' => 'Posisi minimal harus 8 karakter.',
+            'name.max' => 'Posisi maksimal harus 100 karakter.',
+        ];
+    }
 
     public function mount($id)
     {
-        $positions = Position::find($id);
-        $this->position_id = $positions->id;
-        $this->name = $positions->name;
+        $this->position = Position::findOrFail($id);
+        $this->name = $this->position->name;
     }
 
     public function update()
     {
         $this->validate();
 
-        $positions = Position::find($this->position_id);
-        $positions->update([
+        $this->position->update([
             'name' => $this->name
         ]);
 

@@ -10,9 +10,28 @@ class CreateDistrict extends Component
 
     public $name;
 
-    protected $rules = [
-        'name' => ['required']
-    ];
+    public function rules()
+    {
+
+        return [
+            'name' => 'required|string|min:8|max:100'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Nama distrik harus diisi!',
+            'name.string' => 'Data nama harus berupa teks!',
+            'name.min' => 'Nama minimal harus 8 karakter.',
+            'name.max' => 'Nama maksimal harus 100 karakter.',
+        ];
+    }
+
+    public function realtimeValidation()
+    {
+        $this->validateOnly('name');
+    }
 
     public function create()
     {
@@ -22,7 +41,7 @@ class CreateDistrict extends Component
             'name' => $this->name
         ]);
 
-        session()->flash('message', 'Data Berhasil Disimpan');
+        session()->flash('message', 'Data District Berhasil Disimpan');
         return redirect()->route('district.index');
     }
 

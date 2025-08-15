@@ -92,7 +92,7 @@ class EditUsers extends Component
         ]);
 
         if (!empty($this->password)) {
-            $this->password = Hash::make($this->password);
+            $this->user->password = Hash::make($this->password);
             $this->user->save();
         }
 

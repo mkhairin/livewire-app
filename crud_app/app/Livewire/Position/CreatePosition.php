@@ -9,9 +9,22 @@ class CreatePosition extends Component
 {
     public $name;
 
-    protected $rules = [
-        'name' => ['required']
-    ];
+    public function rules()
+    {
+        return [
+            'name' => 'required|string|min:8|max:100'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Nama posisi harus diisi!',
+            'name.string' => 'Data nama harus berupa teks!',
+            'name.min' => 'Posisi minimal harus 8 karakter.',
+            'name.max' => 'Posisi maksimal harus 100 karakter.',
+        ];
+    }
 
     public function create()
     {
