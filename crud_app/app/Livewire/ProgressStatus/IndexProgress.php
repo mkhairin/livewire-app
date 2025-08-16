@@ -4,20 +4,24 @@ namespace App\Livewire\ProgressStatus;
 
 use Livewire\Component;
 use App\Models\ProgressStatusNew;
+use Livewire\WithPagination;
 
 class IndexProgress extends Component
 {
-    public function destroy($id)
+    use WithPagination;
+
+    public function destroy(ProgressStatusNew $progress)
     {
-        ProgressStatusNew::destroy($id);
+        $progress->delete();
         session()->flash('message', 'Data Berhasil Dihapus');
-        return redirect()->route('progress_status.index');
     }
-    
+
     public function render()
     {
+        $progress = ProgressStatusNew::latest()->paginate(10);
+
         return view('livewire.progress-status.index-progress', [
-            'progress_status' => ProgressStatusNew::all()
+            'progress_status' => $progress
         ]);
     }
 }

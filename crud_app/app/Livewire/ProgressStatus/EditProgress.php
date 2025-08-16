@@ -4,35 +4,51 @@ namespace App\Livewire\ProgressStatus;
 
 use Livewire\Component;
 use App\Models\ProgressStatusNew;
-use Livewire\Attributes\Rule;
 
 class EditProgress extends Component
 {
-    public $progress_id;
-    #[Rule('required|min:3|max:15|string', message: 'Masukkan Nama Progress')]
+    public ProgressStatusNew $progress;
     public $name;
-    #[Rule('required|min:3|max:255|string', message: 'Masukkan Deskripsi Progress')]
     public $description;
+
+    public function rules()
+    {
+        return [
+            'name' => 'required|string|min:3|max:15',
+            'description' => 'required|string|min:3|max:25'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Nama progress harus diisi!',
+            'name.string' => 'Data nama progress harus berupa teks!',
+            'name.min' => 'Nama progress harus minimal 3 karakter',
+            'name.max' => 'Nama progress harus maksimal 15 karakter',
+            'description.required' => 'Deskripsi progress harus diisi!',
+            'description.string' => 'Data deskripsi progress harus berupa teks!',
+            'description.min' => 'Deskripsi progress harus minimal 3 karakter',
+            'description.max' => 'Deskripsi progress harus maksimal 25 karakter'
+        ];
+    }
 
     public function mount($id)
     {
-        $progress = ProgressStatusNew::find($id);
-        $this->progress_id = $progress->id;
-        $this->name = $progress->name;
-        $this->description = $progress->description;
+        $this->progress = ProgressStatusNew::findOrFail($id);
+        $this->name = $this->progress->name;
+        $this->description = $this->progress->description;
     }
 
     public function update()
     {
         $this->validate();
-
-        $progress = ProgressStatusNew::find($this->progress_id);
-        $progress->update([
+        $this->progress->update([
             'name' => $this->name,
             'description' => $this->description
         ]);
 
-        session()->flash('message', 'Data Berhasil Diupdate');
+        session()->flash('message', 'Data Progress Berhasil Diupdate');
         return redirect()->route('progress_status.index');
     }
 
